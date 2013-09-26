@@ -18,8 +18,8 @@ LOCAL_DIR := $(GET_LOCAL_DIR)
 TARGET := vexpress-a15
 
 MODULES += \
+	lib/sm \
 	lib/trusty \
-	app/shell \
 	app/tests \
 
 USER_TASKS := sample/skel
