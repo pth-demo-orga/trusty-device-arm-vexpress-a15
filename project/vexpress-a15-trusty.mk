@@ -17,17 +17,9 @@ LOCAL_DIR := $(GET_LOCAL_DIR)
 
 TARGET := vexpress-a15
 
-MODULES += \
-	lib/sm \
-	lib/trusty \
-	app/tests \
-
-USER_TASKS := sample/skel
-USER_TASKS += sample/skel2
-
-USER_TASK_LINKER_SCRIPT := $(BUILDDIR)/user_task-trusty.ld
-USER_TASK_CRTBEGIN_OBJS := $(BUILDDIR)/user/crtbegin.o
-USER_TASK_CRTEND_OBJS := $(BUILDDIR)/user/crtend.o
+#
+# GLOBAL definitions
+#
 
 # force enums to be 4bytes
 GLOBAL_CFLAGS += -mabi=aapcs-linux
@@ -35,3 +27,24 @@ GLOBAL_CFLAGS += -mabi=aapcs-linux
 GLOBAL_DEFINES += \
 	WITH_MMU_RELOC=1 \
 	WITH_LIB_SM_MONITOR=1
+
+#
+# Modules to be compiled into lk.bin
+#
+MODULES += \
+	lib/sm \
+	lib/trusty \
+
+#
+# user tasks to be compiled into lk.bin
+#
+
+# prebuilt
+TRUSTY_PREBUILT_USER_TASKS :=
+
+# compiled from source
+TRUSTY_ALL_USER_TASKS := \
+	sample/skel \
+	sample/skel2\
+
+EXTRA_BUILDRULES += make/trusty-user-tasks.mk
