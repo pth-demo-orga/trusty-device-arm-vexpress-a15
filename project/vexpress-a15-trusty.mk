@@ -21,11 +21,22 @@ TARGET := vexpress-a15
 # GLOBAL definitions
 #
 
+# requires linker GC
+WITH_LINKER_GC := 1
+
 # force enums to be 4bytes
-GLOBAL_CFLAGS += -mabi=aapcs-linux
+ARCH_arm_COMPILEFLAGS := -mabi=aapcs-linux
+
+# Disable VFP and NEON for now
+ARM_WITHOUT_VFP_NEON := true
+
+# do not relocate kernel in physical memory
+GLOBAL_DEFINES += WITH_NO_PHYS_RELOCATION=1
+
+# limit heap grows
+GLOBAL_DEFINES += HEAP_GROW_SIZE=65536
 
 GLOBAL_DEFINES += \
-	WITH_MMU_RELOC=1 \
 	WITH_LIB_SM_MONITOR=1
 
 #
@@ -47,4 +58,4 @@ TRUSTY_ALL_USER_TASKS := \
 	sample/skel \
 	sample/skel2\
 
-EXTRA_BUILDRULES += make/trusty-user-tasks.mk
+EXTRA_BUILDRULES += app/trusty/user-tasks.mk
