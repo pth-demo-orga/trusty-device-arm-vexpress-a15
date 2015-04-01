@@ -30,6 +30,12 @@ ARCH_arm_COMPILEFLAGS := -mabi=aapcs-linux
 # Disable VFP and NEON for now
 ARM_WITHOUT_VFP_NEON := true
 
+# Need support for Non-secure memory mapping
+WITH_NS_MAPPING := true
+
+# This project requires trusty IPC
+WITH_TRUSTY_IPC := true
+
 # do not relocate kernel in physical memory
 GLOBAL_DEFINES += WITH_NO_PHYS_RELOCATION=1
 
