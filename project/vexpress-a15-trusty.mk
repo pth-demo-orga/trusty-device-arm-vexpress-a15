@@ -1,4 +1,4 @@
-# Copyright (C) 2013 The Android Open Source Project
+# Copyright (C) 2013-2014 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -33,4 +33,5 @@ USER_TASK_CRTEND_OBJS := $(BUILDDIR)/user/crtend.o
 GLOBAL_CFLAGS += -mabi=aapcs-linux
 
 GLOBAL_DEFINES += \
-	WITH_MMU_RELOC=1
+	WITH_MMU_RELOC=1 \
+	WITH_LIB_SM_MONITOR=1
