@@ -1,4 +1,4 @@
-# Copyright (C) 2013-2014 The Android Open Source Project
+# Copyright (C) 2013-2015 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -46,6 +46,8 @@ MODULES += \
 	lib/sm \
 	lib/trusty \
 
+TRUSTY_USER_ARCH := arm
+
 #
 # user tasks to be compiled into lk.bin
 #
@@ -57,5 +59,6 @@ TRUSTY_PREBUILT_USER_TASKS :=
 TRUSTY_ALL_USER_TASKS := \
 	sample/skel \
 	sample/skel2\
+	sample/timer\
 
 EXTRA_BUILDRULES += app/trusty/user-tasks.mk
