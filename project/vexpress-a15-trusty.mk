@@ -49,8 +49,8 @@ GLOBAL_DEFINES += \
 # Modules to be compiled into lk.bin
 #
 MODULES += \
-	lib/sm \
-	lib/trusty \
+	trusty/kernel/lib/sm \
+	trusty/kernel/lib/trusty \
 
 TRUSTY_USER_ARCH := arm
 
@@ -63,8 +63,8 @@ TRUSTY_PREBUILT_USER_TASKS :=
 
 # compiled from source
 TRUSTY_ALL_USER_TASKS := \
-	sample/skel \
-	sample/skel2\
-	sample/timer\
+	trusty/user/app/sample/skel \
+	trusty/user/app/sample/skel2\
+	trusty/user/app/sample/timer\
 
 EXTRA_BUILDRULES += app/trusty/user-tasks.mk
