@@ -67,4 +67,4 @@ TRUSTY_ALL_USER_TASKS := \
 	trusty/user/app/sample/skel2\
 	trusty/user/app/sample/timer\
 
-EXTRA_BUILDRULES += app/trusty/user-tasks.mk
+EXTRA_BUILDRULES += trusty/kernel/app/trusty/user-tasks.mk
