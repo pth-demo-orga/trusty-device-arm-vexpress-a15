@@ -27,9 +27,6 @@ WITH_LINKER_GC := 1
 # force enums to be 4bytes
 ARCH_arm_COMPILEFLAGS := -mabi=aapcs-linux
 
-# Disable VFP and NEON for now
-ARM_WITHOUT_VFP_NEON := true
-
 # Need support for Non-secure memory mapping
 WITH_NS_MAPPING := true
 
